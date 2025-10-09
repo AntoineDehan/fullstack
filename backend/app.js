@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+// Routeurs
 const stuffRoutes = require("./routes/stuff");
+const userRoutes = require("./routes/user");
 
 // Connexion MongoDB
 mongoose
@@ -29,6 +31,8 @@ app.use((req, res, next) => {
   next();
 });
 
+// Routes
 app.use("/api/stuff", stuffRoutes);
+app.use("/api/auth", userRoutes);
 
 module.exports = app;
